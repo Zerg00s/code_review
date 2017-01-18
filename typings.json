@@ -4,6 +4,6 @@
   },
   "dependencies": {
     "angular": "registry:dt/angular#1.6.0+20170117142612",
-    "d3": "registry:dt/d3#4.4.0+20161206204056"
+    "d3": "registry:npm/d3#3.0.0+20160723033700"
   }
 }

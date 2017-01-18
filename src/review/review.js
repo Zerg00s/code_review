@@ -53,8 +53,8 @@ var team = new app2.ReviewTeam();
 team.addDeveloper('Denis');
 team.addDeveloper('Jesse');
 team.addDeveloper('John');
-team.addDeveloper('Mike');
-team.addDeveloper('Akash');
+//team.addDeveloper('Mike');
+//team.addDeveloper('Akash');
 team.shuffle();
 //toastr.info(team.toString());
 var members = [];
@@ -104,21 +104,25 @@ svg.append("defs").selectAll("marker")
     .attr("markerHeight", 6)
     .attr("orient", "auto")
     .append("path")
-    .attr("d", "M0,-5L10,0L0,5");
+    .attr("d", "M0,-5L10,0L0,5")
+    .attr("fill", "red")
+    .attr('stroke-width', "2px");
 var path = svg.append("g").selectAll("path")
     .data(force.links())
     .enter().append("path")
-    .attr("class", function (d) { return "link " + d.type; })
+    .attr("stroke", "green")
+    .attr("stroke-width", "2px")
+    .attr("fill", "none")
     .attr("marker-end", function (d) { return "url(#" + d.type + ")"; });
 var circle = svg.append("g").selectAll("circle")
     .data(force.nodes())
     .enter().append("circle")
-    .attr("r", 16) // Circle radius
+    .attr("r", 6) // Circle radius
     .call(force.drag);
 var text = svg.append("g").selectAll("text")
     .data(force.nodes())
     .enter().append("text")
-    .attr("x", 8)
+    .attr("x", 10)
     .attr("y", ".31em")
     .text(function (d) { return d.name; });
 // Use elliptical arc path segments to doubly-encode directionality.
@@ -127,6 +131,12 @@ function tick() {
     circle.attr("transform", transform);
     text.attr("transform", transform);
 }
+// The d attribute is actually a string which contains a series of path descriptions. These paths consist of combinations of the following instructions:
+//     Moveto
+//     Lineto
+//     Curveto
+//     Arcto
+//     ClosePath
 function linkArc(d) {
     var dx = d.target.x - d.source.x, dy = d.target.y - d.source.y, dr = Math.sqrt(dx * dx + dy * dy);
     return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
