@@ -2,9 +2,26 @@
 <link href="/sites/demo/_catalogs/masterpage/codereview/review/review.css">
 <h1>Code Review Randomizer</h1>
 
+<div id="mainContainer"></div>
+<lala></lala>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
-<script src="https://d3js.org/d3.v4.min.js"></script>
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.3/nv.d3.min.css"/>    
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.3/nv.d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-nvd3/1.0.7/angular-nvd3.min.js"></script>
+
 <script src="/sites/demo/_catalogs/masterpage/codereview/app.js"></script>
 <script src="/sites/demo/_catalogs/masterpage/codereview/review/review.js"></script>
+
+<script src="/sites/demo/_catalogs/masterpage/codereview/review/chart.js"></script>
+
+
+<div ng-app="plunker" ng-controller="MainCtrl">
+    <nvd3 options="options" data="data" class="with-3d-shadow with-transitions"></nvd3>
+
+    <button type="button" ng-click="data.nodes.push({'name':'Denis','group':1})"> </button>
+</div>

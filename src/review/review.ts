@@ -60,7 +60,7 @@ team.addDeveloper('Jesse');
 team.addDeveloper('John');
 team.addDeveloper('Mike');
 team.addDeveloper('Akash');
-
+team.shuffle();
 //toastr.info(team.toString());
 
 var members = [];
@@ -84,7 +84,7 @@ var links = [
 
 ];
 
-links = members;
+links = members; 
 
 var nodes = {};
 
@@ -105,7 +105,7 @@ var force = d3.layout.force()
     .on("tick", tick)
     .start();
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#mainContainer").append("svg")
     .attr("width", width)
     .attr("height", height);
 
